@@ -1,3 +1,5 @@
+CREATE DATABASE Moviles;
+
 CREATE TABLE "Users" (
   "id_usuario" SERIAL PRIMARY KEY,
   "username" varchar,
