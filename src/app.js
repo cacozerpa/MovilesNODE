@@ -14,9 +14,9 @@ console.log('Server Listening to: ' + PORT)
 
 app.use(UserRoutes);
 app.use(AuthRoutes);
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
     res.redirect('views/index.html')
-})
+})*/
 
 app.use(cors({
     origin: true,
