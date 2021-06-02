@@ -6,6 +6,9 @@ const querys = {
   UPDATE_USER: `UPDATE public."Users" SET name = $1, username = $2 WHERE id= $3 RETURNING *`,
   DELETE_USER: `DELETE FROM public."Users" WHERE id = $1`,
 
+  //LogIn
+  LOGIN: `SELECT * FROM public. "Users" WHERE username = $1 AND password= $2`,
+
   //Product
   GET_PRODUCTS: `SELECT * FROM public."Products"`,
   CREATE_PRODUCT: `INSERT INTO public."Products" (name, price, description) VALUES ($1, $2, $3) RETURNING *`,
