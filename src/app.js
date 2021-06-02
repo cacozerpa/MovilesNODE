@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const UserRoutes = require('./routes/users');
 const AuthRoutes = require('./routes/auth');
+const ProdRoutes = require('./routes/product');
+const AuthProdRoutes = require('./routes/authproduct');
 
 const app = express();
 
@@ -16,9 +18,12 @@ console.log('Server Listening to: ' + PORT)
 
 app.use(UserRoutes);
 app.use(AuthRoutes);
-/*app.get('/', (req, res) => {
+app.use(AuthProdRoutes);
+app.use(ProdRoutes);
+
+app.get('/', (req, res) => {
     res.redirect('views/index.html')
-})*/
+})
 
 app.use(cors({
     origin: true,

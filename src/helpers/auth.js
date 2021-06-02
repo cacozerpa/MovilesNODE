@@ -28,7 +28,7 @@ const UpdateUser = async (req, res) => {
     const {name, username} = req.body;
     const response = await pool.query(queries.UPDATE_USER, [name, username, id]);
     console.log(response);
-    res.send('User ' + id + ' Updated');
+    res.status(200).send('User ' + id + ' Updated');
     await pool.query('COMMIT');
     }catch(err){
         pool.query('ROLLBACK');
@@ -42,7 +42,7 @@ const DeleteUser = async (req, res) => {
     await pool.query('BEGIN');
     const response = await pool.query(queries.DELETE_USER, [id]);
     console.log(response);
-    res.send('User ' + req.params.id + ' Deleted');
+    res.send('User ' + id + ' Deleted');
     await pool.query('COMMIT');
     }catch(err){
         await pool.query('ROLLBACK');
