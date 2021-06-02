@@ -8,9 +8,9 @@ const querys = {
 
   //Product
   GET_PRODUCTS: `SELECT * FROM public."Products"`,
-  CREATE_PRODUCT: `INSERT INTO public."Products" (name, price, description) VALUES ($1, $2) RETURNING *`,
+  CREATE_PRODUCT: `INSERT INTO public."Products" (name, price, description) VALUES ($1, $2, $3) RETURNING *`,
   GET_PRODUCTBYID:`SELECT * FROM public."Products" WHERE id = $1`,
-  UPDATE_PRODUCT: `UPDATE public."Product" SET name = $1, price = $2, description = $3 WHERE id= $4 RETURNING *`,
+  UPDATE_PRODUCT: `UPDATE public."Products" SET name = $1, price = $2, description = $3 WHERE id= $4 RETURNING *`,
   DELETE_PRODUCT: `DELETE FROM public."Products" WHERE id = $1`,
 };
 
