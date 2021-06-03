@@ -15,6 +15,7 @@ const CreateUser = async (req, res) =>{
         await pool.query('COMMIT');
     }catch(err){
         await pool.query('ROLLBACK');
+        res.status(500).send('Server Error!')
         throw err;
     }
     res.send('User Created')
@@ -32,6 +33,7 @@ const UpdateUser = async (req, res) => {
     await pool.query('COMMIT');
     }catch(err){
         pool.query('ROLLBACK');
+        res.status(500).send('Server Error!')
         throw err;
     }
 }
@@ -46,6 +48,7 @@ const DeleteUser = async (req, res) => {
     await pool.query('COMMIT');
     }catch(err){
         await pool.query('ROLLBACK');
+        res.status(500).send('Server Error!')
         throw err;
     }
 }

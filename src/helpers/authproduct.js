@@ -12,6 +12,7 @@ const createHabichuela = async (req, res) => {
     await pool.query('COMMIT');
     }catch(err){
         pool.query('ROLLBACK');
+        res.status(500).send('Server Error!')
         throw err;
     }
 }
@@ -29,6 +30,7 @@ const UpdateHabichuela = async (req, res) => {
 
     }catch(err){
         await pool.query('ROLLBACK');
+        res.status(500).send('Server Error!')
         throw err;
     }
 }
@@ -44,6 +46,7 @@ const DeleteHabichuela = async (req, res) => {
         await pool.query('COMMIT');
     }catch(err){
         await pool.query('ROLLBACK');
+        res.status(500).send('Server Error!')
         throw err;
     }
 }
