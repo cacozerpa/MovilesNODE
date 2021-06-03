@@ -4,6 +4,7 @@ const UserRoutes = require('./routes/users');
 const AuthRoutes = require('./routes/auth');
 const ProdRoutes = require('./routes/product');
 const AuthProdRoutes = require('./routes/authproduct');
+const Pictures = require('./routes/pictures');
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(UserRoutes);
 app.use(AuthRoutes);
 app.use(AuthProdRoutes);
 app.use(ProdRoutes);
+app.use(Pictures);
 
 app.get('/', (req, res) => {
     res.redirect('views/index.html')

@@ -21,7 +21,7 @@ const LogIn = async (req, res) =>{
     const salt = bcrypt.genSaltSync(12);
     const HashPass = bcrypt.hashSync(password, salt);
     const credentials = await pool.query(queries.LOGIN, [username, HashPass]);
-    if(credentials){
+    if(credentials != ""){
         const token = jwt.sign(username, process.env.SECRET || 'Habichuela');
         res.status(200).send('Welcome ' + username + ', We know you like habichuelas!');
     }else{
